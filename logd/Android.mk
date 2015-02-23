@@ -1,5 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 
+LOCAL_CFLAGS := -fno-strict-aliasing
+
 include $(CLEAR_VARS)
 
 LOCAL_MODULE:= logd
@@ -26,7 +28,7 @@ LOCAL_SHARED_LIBRARIES := \
     libcutils \
     libutils
 
-LOCAL_CFLAGS := -Werror $(shell sed -n 's/^\([0-9]*\)[ \t]*auditd[ \t].*/-DAUDITD_LOG_TAG=\1/p' $(LOCAL_PATH)/event.logtags)
+LOCAL_CFLAGS := -Werror $(shell sed -n 's/^\([0-9]*\)[ \t]*auditd[ \t].*/-DAUDITD_LOG_TAG=\1/p' $(LOCAL_PATH)/event.logtags) -fno-strict-aliasing
 
 include $(BUILD_EXECUTABLE)
 
