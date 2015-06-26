@@ -471,8 +471,6 @@ on property:sys.sysctl.extra_free_kbytes=*
 on property:sys.sysctl.tcp_def_init_rwnd=*
     write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
 
-on property:persist.sys.deso.bootanim=*
-    setprop debug.sf.nobootanimation ${persist.sys.deso.bootanim}
 
 ## Daemon processes to be run by init.
 ##
